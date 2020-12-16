@@ -12,7 +12,7 @@ int main(){
 	// Read input
 	int n; 
 	std::vector<int> v; 
-	std::ifstream infile("day1/day1_input1.txt");
+	std::ifstream infile("day1/day1_input2.txt");
 	while (infile >> n){
 		v.push_back(n);
 	}
