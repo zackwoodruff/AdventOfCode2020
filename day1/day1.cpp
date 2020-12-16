@@ -1,40 +1,48 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-using namespace std; 
+#include <set>
+
+using std::cout; 
+using std::endl;
 
 int main(){
 	cout << "Day 1!" << endl;
 	
 	// Read input
 	int n; 
-	vector<int> v; 
-	ifstream infile("day1/day1_input2.txt");
+	std::vector<int> v; 
+	std::ifstream infile("day1/day1_input1.txt");
 	while (infile >> n){
 		v.push_back(n);
-		//cout << n << endl; 
 	}
 	
 	
+	// Part 1: Find pair of ints a + b = 2000 [O(n)]
 	cout << "Part 1: ";
-	// Find pair of ints a + b = 2000 (Brute force O(n^2))
-	for (auto i = v.begin(); i<v.end()-1; ++i){
-		for (auto j = i+1; j<v.end(); ++j){
-			if (*i + *j == 2020){
-				cout << *i * *j << endl; // Output product a*b
-			}
+	std::set<int> s; 
+	for (int i : v){
+		int diff = 2020 - i;
+		if (s.count(diff)){
+			cout << diff*i << endl;
+			break; 
+		} else {
+			s.insert(i);
 		}
 	}
-
 	
+	
+	// Part 2: Find triplet of ints a + b + c = 2000 [O(n)^2]
 	cout << "Part 2: ";
-	// Find triplet of ints a + b + c = 2000 (Brute force O(n^3))
-	for (auto i= v.begin(); i<v.end()-2; ++i){
-		for (auto j= i+1; j<v.end()-1; ++j){
-			for (auto k = j+1; k<v.end(); ++k){
-				if (*i + *j + *k == 2020){
-					cout << *i * *j * *k << endl; // Output product a*b*c
-				}
+	for (size_t i = 0; i < v.size() - 2; ++i){
+		std::set<int> s; 		
+		for (size_t j = i + 1; j < v.size(); ++j){
+			int diff = 2020 - v[i] - v[j];
+			if (s.count(diff)){
+				cout << diff* v[i] * v[j] << endl;
+				break; 
+			} else  {
+				s.insert(v[j]);
 			}
 		}
 	}
@@ -42,3 +50,5 @@ int main(){
 	
 	return 0; 
 }
+
+
