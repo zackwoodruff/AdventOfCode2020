@@ -6,7 +6,7 @@ using std::cout;
 using std::endl;
 
 
-int check_tree_collisions (std::vector<std::vector<bool>> &treeMatrix, int slopeX, int slopeY){
+int check_tree_collisions (const std::vector<std::vector<bool>> &treeMatrix, const int slopeX, const int slopeY){
 	int nTreeCollisions = 0; 
 	int x = 0; // position down the mountain
 	int y = 0; // position to the right on the mountain
