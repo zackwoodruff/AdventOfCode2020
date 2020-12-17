@@ -50,11 +50,6 @@ int main(){
 		treeMatrix.push_back(treeMatrixRow);
 	}
 	
-	// Print matrix representation of tree locations
-	/*for (int cell : treeMatrix[y]){
-		cout << cell; 
-	} */
-	
 		
 	// Part 1
 	// Check the number of collisions for slope dx = 1 (down mountain), dy = 3 (accross mountain)
