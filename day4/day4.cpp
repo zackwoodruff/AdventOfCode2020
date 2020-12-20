@@ -2,9 +2,10 @@
 #include <fstream>
 #include <sstream>
 #include <cstring>
-#include<set>
+#include <set>
 
-using namespace std; 
+using std::cout; 
+using std::endl;
 
 int main(){
 	// Read/parse input
@@ -24,7 +25,7 @@ int main(){
 	while(std::getline(infile,input)){
 		//cout << input.c_str() << endl;
 		if (input != ""){
-			istringstream in;
+			std::istringstream in;
 			in.str(input);
 			while(in >> inp2) {
 				//cout << inp2 << endl;
